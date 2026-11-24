@@ -1,1 +1,205 @@
 
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dalawang Bading, Isang Laban! 💅</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+:root {
+  --pink: #ff77ad;
+  --purple: #9575cd;
+  --dark: #493653;
+  --light: #fff7fc;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  background: linear-gradient(145deg,#ffe1ef,#eee3ff,#e4f5ff);
+  color: var(--dark);
+  min-height: 100vh;
+  text-align: center;
+}
+main {
+  width: min(92%, 760px);
+  margin: auto;
+  padding: 35px 0 50px;
+}
+.card {
+  background: rgba(255,255,255,.82);
+  border: 2px solid white;
+  border-radius: 26px;
+  padding: 26px 20px;
+  margin: 18px 0;
+  box-shadow: 0 10px 30px #9d72a51c;
+}
+h1 { font-size: clamp(2rem,8vw,3.5rem); line-height: 1.1; color:#c44e91; }
+h2 { color:#8b63b6; }
+p { line-height: 1.7; }
+.small { font-size:.9rem; opacity:.75; }
+.emoji { font-size:3rem; }
+button {
+  border: 0;
+  border-radius: 30px;
+  padding: 13px 20px;
+  margin: 6px;
+  font: 800 1rem 'Nunito',sans-serif;
+  color:white;
+  background: linear-gradient(120deg,#ff79ad,#a77be3);
+  cursor:pointer;
+  box-shadow: 0 5px 12px #b477b52b;
+  transition: transform .2s;
+}
+button:active { transform:scale(.95); }
+button:hover { transform:translateY(-2px); }
+.mood button { background:#fff; color:#8b63b6; border:2px solid #eadcf8; }
+#message {
+  background:#fff1f8;
+  border-radius:18px;
+  padding:20px;
+  margin-top:18px;
+  min-height:90px;
+  font-size:1.1rem;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.hidden { display:none; }
+footer { padding:25px 10px; font-weight:800; color:#9b6ca7; }
+</style>
+</head>
+<body>
+<main>
+  <section class="card">
+    <div class="emoji">💅🌈🫂</div>
+    <p class="small">OFFICIAL HEADQUARTERS NG MGA PAGOD NA PERO LUMALABAN</p>
+    <h1>DALAWANG BADING,<br>ISANG LABAN!</h1>
+    <h2>KAYA MO 'YAN. KAYA NATIN 'TO!</h2>
+    <p>Welcome sa ating digital tambayan!</p>
+    <p>Dito, puwedeng umiyak, tumawa, mag-rant, mag-inarte at magpahinga. Walang judgment dito, puro suporta at kaunting katangahan. HAHAHA!</p>
+    <button onclick="start()">Pasukin ang kalat! 💗</button>
+  </section>
+
+  <section id="home" class="hidden">
+    <div class="card">
+      <div class="emoji">🥹</div>
+      <h2>Anong ganap sa'yo today?</h2>
+      <p>Pili ka, mhie. Anong estado ng iyong pagkatao?</p>
+      <div class="mood">
+        <button onclick="mood('sad')">Malungkot ako 😭</button>
+        <button onclick="mood('overthink')">Overthinking malala 🧠</button>
+        <button onclick="mood('tired')">Pagod na ako 🫠</button>
+        <button onclick="mood('laugh')">Patawanin mo ako 😂</button>
+        <button onclick="mood('hug')">Kailangan ko ng yakap 🫂</button>
+        <button onclick="mood('confidence')">Need ko ng confidence 💅</button>
+      </div>
+      <div id="message" aria-live="polite">Pumili ka muna, mhie. Nandito lang kami. 💗</div>
+    </div>
+
+    <div class="card">
+      <h2>🚨 EMERGENCY BUTTONS 🚨</h2>
+      <p>Para sa mga sitwasyong hindi na kaya ng deep breaths lang.</p>
+      <button onclick="randomMessage()">Random kalat 🎲</button>
+      <button onclick="realityCheck()">Reality check! 🪞</button>
+      <button onclick="hug()">Virtual yakap 🫂</button>
+      <button onclick="secret()">Secret surprise 🎁</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">💗</div>
+      <h2>Reminder mula sa iyong mga ka-bading</h2>
+      <p>Hindi mo kailangang maging okay palagi. Hindi mo kailangang ayusin lahat ngayong araw. Puwede kang magpahinga. Puwede kang umiyak. Puwede kang magsimula ulit bukas.</p>
+      <h2>DALAWA TAYO, ISANG LABAN!</h2>
+      <h1>KAYA NATIN 'TO!</h1>
+      <p>At kung hindi kaya today, edi bukas ulit. Hindi naman tayo hinahabol ng Miss Universe. 😭</p>
+    </div>
+  </section>
+
+  <footer>
+    Made with love, kalat, at konting emotional damage. 💗<br>
+    © Bading Tambayan
+  </footer>
+</main>
+
+<script>
+const messages = {
+  sad: [
+    "Mhie, valid ang nararamdaman mo. Hindi ka mahina dahil nasasaktan ka. Pahinga ka muna. 🫂",
+    "Hindi forever ang ganitong araw. Hindi ka stuck dito. One day at a time, mhie. 💗",
+    "Umiyak ka kung kailangan. Pero pagkatapos, inom tubig. Hindi tayo dehydrated na bida sa teleserye. 😭"
+  ],
+  overthink: [
+    "Mhie, hindi lahat ng naiisip mo ay totoo. Minsan utak mo lang ang gumagawa ng season finale. 😭",
+    "Isa-isahin natin. Hindi mo kailangang solusyunan ang lahat sa loob ng limang minuto.",
+    "Breathe. Hindi lahat ng 'what if' ay mangyayari. Kalma ang ating marupok na utak."
+  ],
+  tired: [
+    "Rest is productive too, mhie. Hindi ka robot. Kahit robot nagcha-charge. 🫠",
+    "Pahinga muna. Hindi ka mawawalan ng worth dahil lang hindi ka productive today.",
+    "Tubig, pagkain, pahinga. Tatlong bagay na mas kailangan mo kaysa mag-overthink sa alas dos ng umaga."
+  ],
+  laugh: [
+    "Ang buhay ay parang Wi-Fi. Minsan connected ka pero walang internet. 😭",
+    "Kung stress ang kalaban, edi maganda tayo. At least may isang bagay na consistent. 💅",
+    "Mhie, ang problema mo ay marami. Pero ang mukha mo? Hindi kasali sa problema. CHAR!",
+    "Kung may bayad ang kakaisip mo, millionaire ka na sana."
+  ],
+  hug: [
+    "Yakap mahigpit! Walang expiration ang friendship natin. 🫂💗",
+    "Hinga muna, mhie. Imagine may dalawang braso na nakayakap sa'yo ngayon.",
+    "Sending the biggest virtual hug. Hindi mo kailangang harapin lahat mag-isa."
+  ],
+  confidence: [
+    "Tumingin ka sa salamin. Ayan, ang ganda ng taong maraming nalampasang pagsubok. 💅",
+    "Hindi mo kailangan ng approval ng lahat. Hindi ito public voting.",
+    "You are doing better than you think. Give yourself some credit, mhie!",
+    "Main character ka. Hindi ka extra sa sarili mong buhay!"
+  ]
+};
+
+const chaos = [
+  "BREAKING NEWS: Maganda ka pa rin kahit may problema. Confirmed. 💅",
+  "Hindi ka failure. Nasa loading screen ka lang. Please wait. 😭",
+  "Kaya mo 'yan! At kung hindi, edi sabay nating alamin kung paano. 🫂",
+  "Reminder: Hindi mo kailangang makipag-compete sa timeline ng ibang tao."
+];
+
+function start() {
+  document.getElementById('home').classList.remove('hidden');
+  document.getElementById('home').scrollIntoView({behavior:'smooth'});
+}
+function show(text) {
+  const box = document.getElementById('message');
+  box.textContent = text;
+  box.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function pick(arr) {
+  return arr[Math.floor(Math.random()*arr.length)];
+}
+function mood(type) {
+  show(pick(messages[type]));
+}
+function randomMessage() {
+  show(pick(chaos));
+}
+function realityCheck() {
+  show(pick([
+    "Hindi mo kailangang i-figure out ang buong buhay mo today. One step at a time.",
+    "Hindi ka behind. May sarili kang timeline. Hindi ito group project.",
+    "Ang pahinga ay hindi pagsuko. Minsan kailangan mo lang huminto para makapagpatuloy."
+  ]));
+}
+function hug() {
+  show("🫂🫂🫂 YAKAAAAAP! Isang mahigpit na yakap para sa'yo. Hindi ka nag-iisa, mhie. KAYA MO 'YAN!");
+}
+function secret() {
+  show("🤫 SECRET MESSAGE: Proud kami sa'yo. Kahit hindi mo napapansin, ang dami mo nang nalampasan. At oo, deserve mo rin ng masarap na pagkain. Treat yourself naman diyan! 💗");
+}
+</script>
+</body>
+  </html>
+                                               
