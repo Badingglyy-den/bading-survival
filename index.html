@@ -21,7 +21,6 @@
 }
 
 *{box-sizing:border-box}
-
 html{scroll-behavior:smooth}
 
 body{
@@ -58,11 +57,7 @@ button:hover{
 }
 
 button:active{transform:scale(.94)}
-
-button:focus-visible{
-  outline:3px solid #c4b5fd;
-  outline-offset:3px;
-}
+button:focus-visible{outline:3px solid #c4b5fd;outline-offset:3px}
 
 .primary{
   background:linear-gradient(120deg,#526fe0,#9669e9);
@@ -139,7 +134,6 @@ h1{
 }
 
 h2{color:#c4b5fd}
-
 p{line-height:1.7}
 
 .small{
@@ -163,7 +157,7 @@ p{line-height:1.7}
 
 .message{
   padding:19px;
-  margin-top:15px;
+  margin:15px 0;
   border-radius:18px;
   border:1px dashed #a78bfa88;
   background:#242044;
@@ -174,6 +168,7 @@ p{line-height:1.7}
   display:flex;
   align-items:center;
   justify-content:center;
+  text-align:center;
   line-height:1.7;
   white-space:pre-line;
 }
@@ -212,47 +207,22 @@ p{line-height:1.7}
 }
 
 .tile:active{transform:scale(.96)}
-
-.tile span{
-  display:block;
-  font-size:2rem;
-  margin-bottom:6px;
-}
-
+.tile span{display:block;font-size:2rem;margin-bottom:6px}
 .tile strong{color:#e0d5ff;font-size:.92rem}
-
-.tile small{
-  color:#aaa2d2;
-  display:block;
-  margin-top:4px;
-}
+.tile small{color:#aaa2d2;display:block;margin-top:4px}
 
 .result{
   background:#201e42;
   border:1px solid #8c75cb66;
   border-radius:18px;
   padding:18px;
-  margin-top:13px;
+  margin:15px 0;
   min-height:75px;
   line-height:1.65;
   font-weight:800;
+  text-align:center;
   white-space:pre-line;
 }
-
-input,textarea{
-  width:100%;
-  padding:13px 15px;
-  border-radius:13px;
-  border:1px solid #9e8cda;
-  background:#171a39;
-  color:white;
-  font-size:1rem;
-  margin:7px 0;
-}
-
-input::placeholder,textarea::placeholder{color:#aaa4c8}
-
-textarea{min-height:85px;resize:vertical}
 
 .frog{
   font-size:4rem;
@@ -305,7 +275,6 @@ textarea{min-height:85px;resize:vertical}
 }
 
 .modal-icon{font-size:3.2rem}
-
 .close{background:#39315e;margin-top:15px}
 
 footer{
@@ -357,14 +326,12 @@ footer b{color:#c4b5fd}
 <section class="card" id="welcome">
   <div class="emoji">🌙💜</div>
   <p class="small">A LITTLE UNIVERSE FOR TWO CHAOTIC SOULS</p>
-
   <h1>BADING<br>TAMBAYAN</h1>
   <h2>DALAWANG BADING, ISANG LABAN!</h2>
-
   <p>Welcome sa secret universe natin, sis.</p>
   <p>May kalat, may chismis, may emotional support. May mga sikreto ring hindi basta-basta makikita. 👀</p>
 
-  <button class="primary" onclick="enter()">PASOK KA, SIS! ✨</button>
+  <button class="primary" id="enterButton" type="button">PASOK KA, SIS! ✨</button>
 
   <p class="small">Explore mo lahat. Baka may mahanap kang hindi mo dapat makita. CHAR!</p>
 </section>
@@ -372,99 +339,49 @@ footer b{color:#c4b5fd}
 <!-- HOME -->
 <section id="home" class="hidden">
 
+<!-- MOOD SECTION -->
 <div class="card">
   <div class="emoji">🌌</div>
   <p class="small">WELCOME TO YOUR SAFE LITTLE CORNER</p>
-
   <h1>Uy, nandito ka na!</h1>
-
   <p>Welcome back, sis! Iwan muna natin ang stress sa labas. Dito, breathe in, breathe out. Tapos chismis. HAHAHA!</p>
 
   <h2>What's the mood, sis?</h2>
+
+  <div class="message" id="moodResult" aria-live="polite">
+    Pili ka, sis. Naka-duty ang emotional support department.
+  </div>
 
   <button onclick="mood('sad')">😭 Sad era</button>
   <button onclick="mood('overthink')">🧠 Overthink malala</button>
   <button onclick="mood('tired')">🫠 Pagod na</button>
   <button onclick="mood('laugh')">🤣 Patawanin mo ako</button>
   <button onclick="mood('confidence')">💅 Main character</button>
-
-  <div class="message" id="moodResult" aria-live="polite">
-    Pili ka, sis. Naka-duty ang emotional support department.
-  </div>
 </div>
 
-<!-- 12 CHAOS FEATURES -->
+<!-- CHAOS GAMES -->
 <div class="card">
   <p class="small">THE DEPARTMENT OF KALAT</p>
   <h2>💜 Choose your chaos</h2>
   <p>Labindalawang paraan para pansamantalang makalimot sa adulting. 😭</p>
 
-  <div class="grid">
-
-    <div class="tile" onclick="play('fortune')">
-      <span>🔮</span><strong>Manghuhula</strong>
-      <small>Kapalaran mo raw...</small>
-    </div>
-
-    <div class="tile" onclick="play('court')">
-      <span>⚖️</span><strong>Bading Court</strong>
-      <small>May kaso ka, sis.</small>
-    </div>
-
-    <div class="tile" onclick="play('machine')">
-      <span>🎰</span><strong>Sampal o Lambing</strong>
-      <small>Spin your fate.</small>
-    </div>
-
-    <div class="tile" onclick="play('frog')">
-      <span>🐸</span><strong>Palakang Marites</strong>
-      <small>May chika raw.</small>
-    </div>
-
-    <div class="tile" onclick="play('universe')">
-      <span>🌌</span><strong>Ask the Universe</strong>
-      <small>Tanong ka lang.</small>
-    </div>
-
-    <div class="tile" onclick="play('compliment')">
-      <span>💜</span><strong>Compliment Generator</strong>
-      <small>Deserve mo 'to.</small>
-    </div>
-
-    <div class="tile" onclick="play('delulu')">
-      <span>🤡</span><strong>Delulu Meter</strong>
-      <small>Reality check, sis.</small>
-    </div>
-
-    <div class="tile" onclick="play('excuse')">
-      <span>😭</span><strong>Excuse Generator</strong>
-      <small>Para sa tamad moments.</small>
-    </div>
-
-    <div class="tile" onclick="play('drama')">
-      <span>🎭</span><strong>Drama Queen</strong>
-      <small>Release the artista.</small>
-    </div>
-
-    <div class="tile" onclick="play('report')">
-      <span>📋</span><strong>Damage Report</strong>
-      <small>Kamusta ang mental?</small>
-    </div>
-
-    <div class="tile" onclick="play('roast')">
-      <span>💅</span><strong>Compliment or Roast</strong>
-      <small>Risk mo 'yan.</small>
-    </div>
-
-    <div class="tile" onclick="play('forbidden')">
-      <span>🚫</span><strong>Forbidden Button</strong>
-      <small>Huwag pindutin...</small>
-    </div>
-
+  <div class="result" id="gameResult" aria-live="polite">
+    Pumili ka ng isang kalokohan sa baba, sis. 👇
   </div>
 
-  <div class="result" id="gameResult" aria-live="polite">
-    Pumili ka ng isang kalokohan sa taas, sis. 👆
+  <div class="grid">
+    <div class="tile" onclick="play('fortune')"><span>🔮</span><strong>Manghuhula</strong><small>Kapalaran mo raw...</small></div>
+    <div class="tile" onclick="play('court')"><span>⚖️</span><strong>Bading Court</strong><small>May kaso ka, sis.</small></div>
+    <div class="tile" onclick="play('machine')"><span>🎰</span><strong>Sampal o Lambing</strong><small>Spin your fate.</small></div>
+    <div class="tile" onclick="play('frog')"><span>🐸</span><strong>Palakang Marites</strong><small>May chika raw.</small></div>
+    <div class="tile" onclick="play('universe')"><span>🌌</span><strong>Ask the Universe</strong><small>Tanong ka lang.</small></div>
+    <div class="tile" onclick="play('compliment')"><span>💜</span><strong>Compliment Generator</strong><small>Deserve mo 'to.</small></div>
+    <div class="tile" onclick="play('delulu')"><span>🤡</span><strong>Delulu Meter</strong><small>Reality check, sis.</small></div>
+    <div class="tile" onclick="play('excuse')"><span>😭</span><strong>Excuse Generator</strong><small>Para sa tamad moments.</small></div>
+    <div class="tile" onclick="play('drama')"><span>🎭</span><strong>Drama Queen</strong><small>Release the artista.</small></div>
+    <div class="tile" onclick="play('report')"><span>📋</span><strong>Damage Report</strong><small>Kamusta ang mental?</small></div>
+    <div class="tile" onclick="play('roast')"><span>💅</span><strong>Compliment or Roast</strong><small>Risk mo 'yan.</small></div>
+    <div class="tile" onclick="play('forbidden')"><span>🚫</span><strong>Forbidden Button</strong><small>Huwag pindutin...</small></div>
   </div>
 </div>
 
@@ -472,12 +389,13 @@ footer b{color:#c4b5fd}
 <div class="card">
   <div class="emoji">🐸</div>
   <h2>THE PALAKANG MARITES</h2>
-
   <p>May gusto raw sabihin ang palaka. Pindutin mo nang paulit-ulit.</p>
 
-  <div class="frog" onclick="frogClick()" role="button" tabindex="0" aria-label="Pindutin ang palaka">🐸</div>
+  <div class="result" id="frogText" aria-live="polite">
+    Hello, sis. May chika ako. Pero secret.
+  </div>
 
-  <p id="frogText">Hello, sis. May chika ako. Pero secret.</p>
+  <div class="frog" onclick="frogClick()" role="button" tabindex="0" aria-label="Pindutin ang palaka">🐸</div>
   <p class="small">Psst... try mo siyang kulitin.</p>
 </div>
 
@@ -485,31 +403,13 @@ footer b{color:#c4b5fd}
 <div class="card">
   <div class="emoji">💌</div>
   <h2>Secret Corners</h2>
-
   <p>Hindi lahat ng message ay nasa harap mo. May kailangan kang hanapin.</p>
 
   <div class="grid">
-
-    <div class="tile" onclick="secret('letter')">
-      <span>💌</span><strong>Open when sad</strong>
-      <small>Para sa mabibigat na araw</small>
-    </div>
-
-    <div class="tile" onclick="secret('door')">
-      <span>🚪</span><strong>Do not open</strong>
-      <small>Wag daw. Sige nga.</small>
-    </div>
-
-    <div class="tile" onclick="secret('box')">
-      <span>🎁</span><strong>Mystery box</strong>
-      <small>May laman ba?</small>
-    </div>
-
-    <div class="tile" onclick="secret('star')">
-      <span>🌟</span><strong>Little star</strong>
-      <small>A reminder for you</small>
-    </div>
-
+    <div class="tile" onclick="secret('letter')"><span>💌</span><strong>Open when sad</strong><small>Para sa mabibigat na araw</small></div>
+    <div class="tile" onclick="secret('door')"><span>🚪</span><strong>Do not open</strong><small>Wag daw. Sige nga.</small></div>
+    <div class="tile" onclick="secret('box')"><span>🎁</span><strong>Mystery box</strong><small>May laman ba?</small></div>
+    <div class="tile" onclick="secret('star')"><span>🌟</span><strong>Little star</strong><small>A reminder for you</small></div>
   </div>
 </div>
 
@@ -518,13 +418,13 @@ footer b{color:#c4b5fd}
   <div class="emoji">🔍</div>
   <h2>Secret Discovery Tracker</h2>
 
-  <p>Ilang sikreto na ang nahukay mo?</p>
+  <div class="result" id="progressMessage" aria-live="polite">
+    0 discoveries. Kalikutin mo pa, sis!
+  </div>
 
   <div class="progress">
     <div id="progressBar"></div>
   </div>
-
-  <p id="progressText">0 discoveries. Kalikutin mo pa, sis!</p>
 
   <button class="primary" onclick="finalSecret()">Unlock the final message 🤫</button>
 </div>
@@ -532,14 +432,10 @@ footer b{color:#c4b5fd}
 <!-- REMINDER -->
 <div class="card">
   <h2>💜 A little reminder</h2>
-
   <p>Hindi mo kailangang maging okay palagi. Hindi mo kailangang maging strong 24/7. Puwede kang mapagod. Puwede kang umiyak. Puwede kang magpahinga.</p>
-
   <p>Hindi mo kailangang solusyunan lahat nang sabay-sabay.</p>
-
   <h1>KAYA MO 'YAN!</h1>
   <h1>KAYA NATIN 'TO!</h1>
-
   <p>Dalawa tayo, isang laban. 🫂</p>
 </div>
 
@@ -555,208 +451,147 @@ footer b{color:#c4b5fd}
 <!-- MODAL -->
 <div id="modal" class="modal hidden" onclick="outsideClose(event)">
   <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-
     <div class="modal-icon" id="modalIcon">💜</div>
-
     <h2 id="modalTitle">Secret message</h2>
-
     <p id="modalText"></p>
-
     <button class="close" onclick="closeModal()">Okay, gets ko na 😭</button>
-
   </div>
 </div>
 
 <script>
 
-/* =================================
-   STARRY SKY
-================================= */
-
-const starArea = document.getElementById('stars');
+/* STARRY SKY */
+const starArea=document.getElementById('stars');
 
 for(let i=0;i<65;i++){
   const s=document.createElement('span');
-
   s.className='star';
   s.textContent=Math.random()>.5?'✦':'·';
-
   s.style.left=Math.random()*100+'%';
   s.style.top=Math.random()*100+'%';
   s.style.fontSize=(8+Math.random()*15)+'px';
   s.style.animationDuration=(1+Math.random()*3)+'s';
   s.style.animationDelay=Math.random()*3+'s';
-
   starArea.appendChild(s);
 }
 
 function shootingStar(){
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-
   const s=document.createElement('div');
-
   s.className='shooting-star';
   s.style.left=Math.random()*80+'vw';
   s.style.top=Math.random()*50+'vh';
-
   document.body.appendChild(s);
-
   setTimeout(()=>s.remove(),1600);
 }
 
 setInterval(shootingStar,5000);
 
-
-/* =================================
-   CONFETTI
-================================= */
+/* HELPERS */
+function pick(array){
+  return array[Math.floor(Math.random()*array.length)];
+}
 
 function confetti(){
   const emojis=['💜','✨','🌟','💖','🫂','🌸'];
 
   for(let i=0;i<18;i++){
     const item=document.createElement('span');
-
     item.className='confetti';
     item.textContent=pick(emojis);
-
     item.style.left=Math.random()*100+'vw';
-    item.style.top=(Math.random()*15)+'vh';
+    item.style.top=Math.random()*15+'vh';
     item.style.animationDelay=Math.random()*.4+'s';
-
     document.body.appendChild(item);
-
     setTimeout(()=>item.remove(),2300);
   }
 }
 
-
-/* =================================
-   ENTER WEBSITE
-================================= */
-
-function enter(){
-  document.getElementById('welcome').classList.add('hidden');
-
-  const home=document.getElementById('home');
-
-  home.classList.remove('hidden');
-
-  home.scrollIntoView({behavior:'smooth'});
-
-  confetti();
+function setResult(id,text){
+  const el=document.getElementById(id);
+  if(!el)return;
+  el.classList.remove('pop');
+  void el.offsetWidth;
+  el.textContent=text;
+  el.classList.add('pop');
 }
 
+/* ENTER WEBSITE */
+document.getElementById('enterButton').addEventListener('click',function(){
+  document.getElementById('welcome').classList.add('hidden');
+  const home=document.getElementById('home');
+  home.classList.remove('hidden');
+  home.scrollIntoView({behavior:'smooth'});
+  confetti();
+});
 
-/* =================================
-   MESSAGE SYSTEM
-================================= */
-
+/* MOOD MESSAGES */
 const moodMessages={
-
 sad:[
 "Halika rito, sis. 🫂 Hindi ka mahina dahil umiiyak ka. Tao ka, hindi washing machine.",
 "Hindi forever ang ganitong araw. Dahan-dahan lang. Hindi mo kailangang magpanggap na okay.",
 "Kung mabigat ngayon, ibaba mo muna. Hindi lahat kailangan mong buhatin nang sabay-sabay.",
 "Puwede kang umiyak, sis. Puwede kang magpahinga. Deserve mo rin ng lambing."
 ],
-
 overthink:[
 "SIS, TAMA NA. Gumawa na naman utak mo ng 48 episodes kahit wala pang pilot episode. 😭",
 "Hindi lahat ng naiisip mo ay mangyayari. Minsan imagination mo lang ang may overtime.",
 "One problem at a time. Hindi ka octopus.",
 "What if okay naman pala? Baka naman pwedeng huwag nating unahan ang problema."
 ],
-
 tired:[
 "Pahinga ka muna, sis. Hindi ka empleyado ng universe na may attendance.",
 "Kahit halaman dinidiligan. Ikaw pa kaya? Tubig ka muna diyan. 😭",
 "Hindi sukatan ng worth mo ang dami ng nagawa mo today.",
 "Rest muna. Hindi ka nawawalan ng progress dahil huminto ka sandali."
 ],
-
 laugh:[
 "Ang buhay ay parang electric fan. Minsan umiikot ka lang pero wala ka namang nararating. 😭",
 "Kung problema mo ay tao, edi block. Kung bills, sis, sorry kailangan natin magtrabaho.",
 "Kung may bayad ang kakaisip mo, millionaire ka na sana.",
 "Ang confidence ko parang Wi-Fi. Malakas kapag walang nakakakita."
 ],
-
 confidence:[
 "Tumingin ka sa salamin. AYAN! May star material sa harap mo. 💅",
 "Hindi mo kailangan ng approval ng lahat. Hindi ito barangay election.",
 "Main character ka. Huwag mong ibigay ang script mo sa mga kontrabida.",
 "You've survived so much already. Give yourself some credit, sis!"
 ]
-
 };
-
-function pick(array){
-  return array[Math.floor(Math.random()*array.length)];
-}
-
-function setResult(id,text){
-  const el=document.getElementById(id);
-
-  el.classList.remove('pop');
-
-  void el.offsetWidth;
-
-  el.textContent=text;
-
-  el.classList.add('pop');
-}
 
 function mood(type){
   if(!moodMessages[type])return;
-
   setResult('moodResult',pick(moodMessages[type]));
 }
 
-
-/* =================================
-   DISCOVERY TRACKER
-   12 games + 4 secrets + frog
-================================= */
-
+/* DISCOVERY TRACKER */
 const TOTAL_DISCOVERIES=17;
-
 let found=new Set();
 
 function discover(key){
   if(found.has(key))return;
-
   found.add(key);
-
   updateProgress();
 }
 
 function updateProgress(){
-
   const count=found.size;
-
-  const percentage=(count/TOTAL_DISCOVERIES)*100;
+  const percentage=Math.min((count/TOTAL_DISCOVERIES)*100,100);
 
   document.getElementById('progressBar').style.width=percentage+'%';
 
-  document.getElementById('progressText').textContent=
-
-  count>=TOTAL_DISCOVERIES
-  ?"ALL SECRETS FOUND! SIS, IKAW ANG CHOSEN ONE! 🌟"
-  :count+" / "+TOTAL_DISCOVERIES+" discoveries! Ang sipag mong mangalkal, sis. 👀";
-
+  setResult(
+    'progressMessage',
+    count>=TOTAL_DISCOVERIES
+    ?"ALL SECRETS FOUND! SIS, IKAW ANG CHOSEN ONE! 🌟"
+    :count+" / "+TOTAL_DISCOVERIES+" discoveries! Ang sipag mong mangalkal, sis. 👀"
+  );
 }
 
-
-/* =================================
-   12 CHAOS GAMES
-================================= */
-
+/* 12 CHAOS GAMES */
 const games={
-
 fortune:{
 icon:'🔮',
-title:'Manghuhula ng Kapalaran',
 items:[
 "May darating na blessing sa buhay mo. Sana hindi bill. 😭",
 "Your future is bright. Pero mag-charge ka muna ng phone.",
@@ -765,10 +600,8 @@ items:[
 "May taong naiisip ka. Pero huwag kang mag-assume, beh. Charot!",
 "Ang kapalaran mo ay nasa kamay mo. Hugasan mo muna."
 ]},
-
 court:{
 icon:'⚖️',
-title:'Bading Court',
 items:[
 "CASE #001: Guilty ka sa pagiging marupok. Sentenced to 3 days of self-love. 💅",
 "CASE #002: Overthinking in the first degree. Sentenced to 8 hours of tulog.",
@@ -776,10 +609,8 @@ items:[
 "CASE #004: Excessive scrolling. Sentenced to drink water and touch grass.",
 "CASE #005: Pagiging mabait sa maling tao. Sentenced to set boundaries."
 ]},
-
 machine:{
 icon:'🎰',
-title:'Sampal o Lambing Machine',
 items:[
 "🫂 LAMBING: Sis, proud kami sa'yo. Hindi mo man nakikita, ang layo na ng narating mo.",
 "💀 SAMPAL: Hindi siya busy. Baka hindi ka lang priority. Ouch, sis.",
@@ -787,10 +618,8 @@ items:[
 "💀 SAMPAL: Tigilan ang pag-stalk. Hindi ka detective, sis.",
 "🫂 LAMBING: Deserve mong mahalin nang maayos. Never settle for less."
 ]},
-
 frog:{
 icon:'🐸',
-title:'Palakang Marites',
 items:[
 "May chika ako, sis. Pero nakalimutan ko. Croak.",
 "May nakita akong red flag. Akala ko decoration.",
@@ -798,10 +627,8 @@ items:[
 "Breaking news: Ang palaka ay pagod na rin sa buhay.",
 "May bagong chismis! Ikaw ang bida. Charot lang, huwag kabahan."
 ]},
-
 universe:{
 icon:'🌌',
-title:'Ask the Universe',
 items:[
 "Universe says: MATULOG KA NA, SIS.",
 "Universe says: Maybe yes. Maybe no. Baka kailangan mo pang mag-isip.",
@@ -809,10 +636,8 @@ items:[
 "Universe says: Good things take time. Huwag magmadali.",
 "Universe says: Hindi lahat ng bagay kailangan mong kontrolin."
 ]},
-
 compliment:{
 icon:'💜',
-title:'Random Compliment',
 items:[
 "Ang galing mong lumaban kahit pagod ka na. Proud kami sa'yo.",
 "Your existence makes someone's day better. Hindi mo lang alam.",
@@ -820,10 +645,8 @@ items:[
 "Ang ganda ng energy mo kapag sarili mo ang pinipili mo.",
 "You deserve kindness, especially from yourself."
 ]},
-
 delulu:{
 icon:'🤡',
-title:'Delulu Meter',
 items:[
 "DELULU LEVEL: 10% — May konting imagination lang. Safe pa.",
 "DELULU LEVEL: 35% — Sis, medyo may scenario ka na sa utak mo.",
@@ -831,10 +654,8 @@ items:[
 "DELULU LEVEL: 90% — Nag-name na kayo ng anak sa imagination mo.",
 "DELULU LEVEL: 1000% — SIS, GISING. MAY PASOK PA BUKAS."
 ]},
-
 excuse:{
 icon:'😭',
-title:'Excuse Generator',
 items:[
 "Sorry po, nag-update ang aking operating system. Hindi pa po ako compatible sa responsibilities.",
 "Pasensya na, sis. Nasa maintenance mode po ang aking kaluluwa.",
@@ -842,10 +663,8 @@ items:[
 "Delayed po ako dahil may meeting kami ng katamaran.",
 "Apologies. My brain has left the group chat."
 ]},
-
 drama:{
 icon:'🎭',
-title:'Drama Queen Department',
 items:[
 "ANG SAKIT! ANG HIRAP! ANG BIGAT! Pero maganda pa rin ako. 💅",
 "PLEASE, UNIVERSE. CAN I HAVE ONE NORMAL DAY?!",
@@ -853,10 +672,8 @@ items:[
 "Cut! CUT! I DEMAND A BETTER SCRIPT!",
 "Kung iyak lang ang puhunan, sis, award-winning na tayo."
 ]},
-
 report:{
 icon:'📋',
-title:'Emotional Damage Report',
 items:[
 "STATUS: Medyo sabog. RECOMMENDATION: Tubig, pagkain, tulog, at konting chika.",
 "STATUS: Overloaded. ACTION: Close unnecessary tabs sa utak.",
@@ -864,10 +681,8 @@ items:[
 "STATUS: Main character under pressure. NEXT STEP: Take a break.",
 "STATUS: Recovering. PROGNOSIS: May pag-asa, sis. Dahan-dahan lang."
 ]},
-
 roast:{
 icon:'💅',
-title:'Compliment or Roast',
 items:[
 "COMPLIMENT: Ang ganda mo, sis. ROAST: Bakit hindi ka pa natutulog?",
 "COMPLIMENT: Strong ka. ROAST: Pero bakit ang hina mong mag-set ng boundaries?",
@@ -875,10 +690,8 @@ items:[
 "COMPLIMENT: Deserving ka ng love. ROAST: Tigilan ang paghabol sa hindi naman tumatakbo.",
 "COMPLIMENT: You are amazing. ROAST: Baka naman kailangan mo lang ng tubig."
 ]},
-
 forbidden:{
 icon:'🚫',
-title:'THE FORBIDDEN BUTTON',
 items:[
 "BAWAL NGA PINDUTIN! SIS, MAY PROBLEMA KA BA SA PAGBABASA? 😭",
 "Congratulations. Wala kang napanalunan. Pindot ka pa.",
@@ -886,211 +699,131 @@ items:[
 "Warning: Your curiosity has exceeded recommended levels.",
 "Ang tapang mo. Sana ganyan ka rin katapang magpahinga."
 ]}
-
 };
 
 function play(key){
-
   const game=games[key];
-
   if(!game)return;
 
-  const text=pick(game.items);
-
-  setResult('gameResult',game.icon+" "+text);
-
-  discover(key);
-
+  setResult('gameResult',game.icon+' '+pick(game.items));
+  discover('game-'+key);
   confetti();
-
 }
 
-
-/* =================================
-   PALAKANG MARITES
-================================= */
-
+/* PALAKANG MARITES */
 let frogCount=0;
 
 const frogLines=[
-
 "Hello, sis. May chika ako. Pero secret.",
-
 "Uy, bumalik ka! May tanong ka ba?",
-
 "Alam mo ba, marunong akong lumangoy? Ikaw ba, marunong mag-move on?",
-
 "TEKA LANG. Pindot ka nang pindot. Wala ka bang ibang hobby?",
-
 "FIFTH TIME NA 'TO! SANA ALL MAY GANITONG ATTENTION. 😭",
-
 "Fine. Ang chika: DESERVE MO NG MAS MAGANDANG BUHAY.",
-
 "Blocked ka na sana kaso palaka lang ako. 🐸"
-
 ];
 
 function frogClick(){
-
   frogCount++;
 
-  document.getElementById('frogText').textContent=
-
-  frogLines[Math.min(frogCount,frogLines.length-1)];
+  setResult(
+    'frogText',
+    frogLines[Math.min(frogCount,frogLines.length-1)]
+  );
 
   if(frogCount>=5){
-
     discover('frog');
-
     confetti();
-
   }
-
 }
 
-
-/* Keyboard support for frog */
-
 document.querySelector('.frog').addEventListener('keydown',function(event){
-
   if(event.key==='Enter'||event.key===' '){
-
     event.preventDefault();
-
     frogClick();
-
   }
-
 });
 
-
-/* =================================
-   SECRET CORNERS
-================================= */
-
+/* SECRET CORNERS */
 const secrets={
-
 letter:[
 '💌',
 'A little letter for you',
 'Dear sis, hindi mo kailangang ayusin lahat ngayon. You are allowed to have bad days. You are allowed to rest. You deserve good things, too. Proud kami sa iyo. 💜'
 ],
-
 door:[
 '🚪',
 'BAKIT MO PININDOT?!',
 'Sabi nang huwag buksan eh. 😭 Curious ka talaga, sis. Anyway, KAYA MO YAN! Huwag mong kalimutan na may kakampi ka.'
 ],
-
 box:[
 '🎁',
 'Mystery Box Unlocked!',
 'Congratulations! Ang laman ng box ay... isang virtual hug! 🫂 At isang reminder na hindi ka nag-iisa. Deserve mo ang lahat ng magagandang bagay.'
 ],
-
 star:[
 '🌟',
 'Your Little Star',
 'Kahit gaano kadilim ang gabi, may liwanag pa ring naghihintay. Hindi mo kailangang magmadali. Keep going, little star. 💜'
-
 ]
-
 };
 
+/* MODAL */
 function openModal(icon,title,text){
-
   document.getElementById('modalIcon').textContent=icon;
-
   document.getElementById('modalTitle').textContent=title;
-
   document.getElementById('modalText').textContent=text;
-
   document.getElementById('modal').classList.remove('hidden');
-
   document.body.style.overflow='hidden';
-
 }
 
 function closeModal(){
-
   document.getElementById('modal').classList.add('hidden');
-
   document.body.style.overflow='';
-
 }
 
 function outsideClose(event){
-
-  if(event.target.id==='modal'){
-
-    closeModal();
-
-  }
-
+  if(event.target.id==='modal')closeModal();
 }
 
 function secret(key){
-
   const data=secrets[key];
-
   if(!data)return;
 
   openModal(data[0],data[1],data[2]);
-
   discover('secret-'+key);
-
   confetti();
-
 }
 
-
-/* =================================
-   FINAL SECRET
-================================= */
-
+/* FINAL SECRET */
 function finalSecret(){
-
   if(found.size<TOTAL_DISCOVERIES){
-
     const remaining=TOTAL_DISCOVERIES-found.size;
 
     openModal(
       '🔒',
       'HALA, HINDI PA COMPLETE!',
-      'May '+remaining+' pang discoveries kang hindi nahahanap, sis! 😭\\n\\nBalikan mo ang mga chaos games, kulitin ang palaka, at buksan ang Secret Corners. Kaya mo yan!'
+      'May '+remaining+' pang discoveries kang hindi nahahanap, sis! 😭\n\nBalikan mo ang mga chaos games, kulitin ang palaka, at buksan ang Secret Corners. Kaya mo yan!'
     );
-
     return;
-
   }
 
   openModal(
-
     '💜',
-
     'YOU FOUND EVERYTHING!',
-
-    'Dear sis,\\n\\nKung may isang bagay kang dapat tandaan, ito iyon: Hindi mo kailangang harapin ang lahat nang mag-isa.\\n\\nMay mga araw na mahirap, may mga araw na nakakapagod, at may mga araw na gusto mo na lang sumuko. Pero nandito ka pa rin. Lumalaban ka pa rin.\\n\\nProud ako sa atin. Sa lahat ng pinagdaanan natin at sa lahat ng malalampasan pa natin.\\n\\nKAYA MO YAN. KAYA NATIN TO.\\n\\nDalawang bading, isang laban. Forever kakampi. 🫂💜'
-
+    'Dear sis,\n\nKung may isang bagay kang dapat tandaan, ito iyon: Hindi mo kailangang harapin ang lahat nang mag-isa.\n\nMay mga araw na mahirap, may mga araw na nakakapagod, at may mga araw na gusto mo na lang sumuko. Pero nandito ka pa rin. Lumalaban ka pa rin.\n\nProud ako sa atin. Sa lahat ng pinagdaanan natin at sa lahat ng malalampasan pa natin.\n\nKAYA MO YAN. KAYA NATIN TO.\n\nDalawang bading, isang laban. Forever kakampi. 🫂💜'
   );
 
   confetti();
-
 }
 
-
-/* =================================
-   SECRET EASTER EGG
-================================= */
-
+/* SECRET EASTER EGG */
 let titleClicks=0;
 
 document.querySelector('#welcome h1').addEventListener('click',function(){
-
   titleClicks++;
 
   if(titleClicks>=5){
-
     titleClicks=0;
 
     openModal(
@@ -1100,27 +833,14 @@ document.querySelector('#welcome h1').addEventListener('click',function(){
     );
 
     confetti();
-
   }
-
 });
 
-
-/* =================================
-   KEYBOARD MODAL CONTROL
-================================= */
-
+/* KEYBOARD MODAL CONTROL */
 document.addEventListener('keydown',function(event){
-
-  if(event.key==='Escape'){
-
-    closeModal();
-
-  }
-
+  if(event.key==='Escape')closeModal();
 });
 
 </script>
-
 </body>
 </html>
