@@ -12,16 +12,18 @@
 
 :root {
   --night:#10132e;
-  --blue:#172554;
   --purple:#6741a5;
   --violet:#9875ed;
   --lavender:#c4b5fd;
   --light:#e8e5ff;
   --muted:#aaa4d0;
-  --glass:rgba(37,35,83,.82);
+  --glass:rgba(37,35,83,.85);
 }
+
 *{box-sizing:border-box}
+
 html{scroll-behavior:smooth}
+
 body{
   margin:0;
   min-height:100vh;
@@ -33,7 +35,9 @@ body{
     radial-gradient(ellipse at 85% 75%,#35205f,transparent 45%),
     var(--night);
 }
+
 button,input,textarea{font-family:inherit}
+
 button{
   border:1px solid #b4a0ff55;
   border-radius:30px;
@@ -47,277 +51,712 @@ button{
   transition:.25s;
   box-shadow:0 5px 18px #0003;
 }
-button:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 8px 22px #9274ed55}
+
+button:hover{
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 8px 22px #9274ed55;
+}
+
 button:active{transform:scale(.94)}
-button:focus-visible{outline:3px solid #c4b5fd;outline-offset:3px}
-.primary{background:linear-gradient(120deg,#526fe0,#9669e9);padding:14px 25px}
+
+button:focus-visible{
+  outline:3px solid #c4b5fd;
+  outline-offset:3px;
+}
+
+.primary{
+  background:linear-gradient(120deg,#526fe0,#9669e9);
+  padding:14px 25px;
+}
+
 .secondary{background:#292950;color:#ded5ff}
-#stars{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.star{position:absolute;color:#ddd4ff;animation:twinkle ease-in-out infinite alternate}
-@keyframes twinkle{from{opacity:.15;transform:scale(.7)}to{opacity:1;transform:scale(1.3)}}
+
+#stars{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  overflow:hidden;
+}
+
+.star{
+  position:absolute;
+  color:#ddd4ff;
+  animation:twinkle ease-in-out infinite alternate;
+}
+
+@keyframes twinkle{
+  from{opacity:.15;transform:scale(.7)}
+  to{opacity:1;transform:scale(1.3)}
+}
+
 .shooting-star{
-  position:fixed;width:100px;height:2px;
+  position:fixed;
+  width:100px;
+  height:2px;
   background:linear-gradient(90deg,transparent,#ddd0ff,transparent);
-  transform:rotate(-35deg);pointer-events:none;z-index:2;
-  animation:shoot 1.5s linear forwards
+  transform:rotate(-35deg);
+  pointer-events:none;
+  z-index:2;
+  animation:shoot 1.5s linear forwards;
 }
-@keyframes shoot{from{opacity:0;translate:0 0}20%{opacity:1}to{opacity:0;translate:250px 180px}}
-main{width:min(94%,780px);margin:auto;padding:30px 0 45px;position:relative;z-index:1}
+
+@keyframes shoot{
+  from{opacity:0;translate:0 0}
+  20%{opacity:1}
+  to{opacity:0;translate:250px 180px}
+}
+
+main{
+  width:min(94%,780px);
+  margin:auto;
+  padding:30px 0 45px;
+  position:relative;
+  z-index:1;
+}
+
 .card{
-  background:var(--glass);border:1px solid #8271c566;
-  border-radius:25px;padding:25px 20px;margin:18px 0;
-  box-shadow:0 15px 45px #0004;backdrop-filter:blur(12px);
-  animation:appear .7s both
+  background:var(--glass);
+  border:1px solid #8271c566;
+  border-radius:25px;
+  padding:25px 20px;
+  margin:18px 0;
+  box-shadow:0 15px 45px #0004;
+  backdrop-filter:blur(12px);
+  animation:appear .7s both;
 }
-@keyframes appear{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-h1{color:#d4c4ff;font-size:clamp(2rem,8vw,3.4rem);line-height:1.1;text-shadow:0 0 25px #9d7cff70}
+
+@keyframes appear{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+h1{
+  color:#d4c4ff;
+  font-size:clamp(2rem,8vw,3.4rem);
+  line-height:1.1;
+  text-shadow:0 0 25px #9d7cff70;
+}
+
 h2{color:#c4b5fd}
+
 p{line-height:1.7}
-.small{color:var(--muted);font-size:.82rem;font-weight:800}
-.emoji{font-size:3.2rem;display:inline-block;animation:bob 2.5s ease-in-out infinite}
-@keyframes bob{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-10px) rotate(5deg)}}
+
+.small{
+  color:var(--muted);
+  font-size:.82rem;
+  font-weight:800;
+}
+
+.emoji{
+  font-size:3.2rem;
+  display:inline-block;
+  animation:bob 2.5s ease-in-out infinite;
+}
+
+@keyframes bob{
+  0%,100%{transform:translateY(0) rotate(-5deg)}
+  50%{transform:translateY(-10px) rotate(5deg)}
+}
+
 .hidden{display:none!important}
+
 .message{
-  padding:19px;margin-top:15px;border-radius:18px;
-  border:1px dashed #a78bfa88;background:#242044;
-  color:#eee8ff;font-size:1.02rem;font-weight:800;
-  min-height:85px;display:flex;align-items:center;justify-content:center;
-  line-height:1.7;white-space:pre-line
+  padding:19px;
+  margin-top:15px;
+  border-radius:18px;
+  border:1px dashed #a78bfa88;
+  background:#242044;
+  color:#eee8ff;
+  font-size:1.02rem;
+  font-weight:800;
+  min-height:85px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  line-height:1.7;
+  white-space:pre-line;
 }
+
 .pop{animation:pop .4s ease}
-@keyframes pop{0%{opacity:0;transform:scale(.8)}70%{transform:scale(1.05)}100%{opacity:1;transform:scale(1)}}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-top:18px}
+
+@keyframes pop{
+  0%{opacity:0;transform:scale(.8)}
+  70%{transform:scale(1.05)}
+  100%{opacity:1;transform:scale(1)}
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:11px;
+  margin-top:18px;
+}
+
 .tile{
-  background:#28254e;border:1px solid #8874c66b;
-  border-radius:18px;padding:17px 10px;min-height:115px;
-  cursor:pointer;transition:.25s
+  background:#28254e;
+  border:1px solid #8874c66b;
+  border-radius:18px;
+  padding:17px 10px;
+  min-height:115px;
+  cursor:pointer;
+  transition:.25s;
+  text-align:center;
+  user-select:none;
 }
-.tile:hover{background:#40366f;transform:translateY(-4px);box-shadow:0 0 24px #a78bfa38}
-.tile span{display:block;font-size:2rem;margin-bottom:6px}
+
+.tile:hover{
+  background:#40366f;
+  transform:translateY(-4px);
+  box-shadow:0 0 24px #a78bfa38;
+}
+
+.tile:active{transform:scale(.96)}
+
+.tile span{
+  display:block;
+  font-size:2rem;
+  margin-bottom:6px;
+}
+
 .tile strong{color:#e0d5ff;font-size:.92rem}
-.tile small{color:#aaa2d2;display:block;margin-top:4px}
-.result{background:#201e42;border:1px solid #8c75cb66;border-radius:18px;padding:18px;margin-top:13px;min-height:75px;line-height:1.65;font-weight:800;white-space:pre-line}
+
+.tile small{
+  color:#aaa2d2;
+  display:block;
+  margin-top:4px;
+}
+
+.result{
+  background:#201e42;
+  border:1px solid #8c75cb66;
+  border-radius:18px;
+  padding:18px;
+  margin-top:13px;
+  min-height:75px;
+  line-height:1.65;
+  font-weight:800;
+  white-space:pre-line;
+}
+
 input,textarea{
-  width:100%;padding:13px 15px;border-radius:13px;
-  border:1px solid #9e8cda;background:#171a39;
-  color:white;font-size:1rem;margin:7px 0
+  width:100%;
+  padding:13px 15px;
+  border-radius:13px;
+  border:1px solid #9e8cda;
+  background:#171a39;
+  color:white;
+  font-size:1rem;
+  margin:7px 0;
 }
+
 input::placeholder,textarea::placeholder{color:#aaa4c8}
+
 textarea{min-height:85px;resize:vertical}
-.frog{font-size:4rem;cursor:pointer;display:inline-block;transition:.2s;user-select:none}
+
+.frog{
+  font-size:4rem;
+  cursor:pointer;
+  display:inline-block;
+  transition:.2s;
+  user-select:none;
+}
+
 .frog:active{transform:rotate(15deg) scale(1.2)}
-.progress{height:9px;border-radius:20px;background:#242044;overflow:hidden;margin:12px 0}
-#progressBar{height:100%;width:0;background:linear-gradient(90deg,#6483ff,#c4b5fd);transition:width .5s}
+
+.progress{
+  height:9px;
+  border-radius:20px;
+  background:#242044;
+  overflow:hidden;
+  margin:12px 0;
+}
+
+#progressBar{
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,#6483ff,#c4b5fd);
+  transition:width .5s;
+}
+
 .modal{
-  position:fixed;inset:0;z-index:20;display:flex;align-items:center;
-  justify-content:center;padding:18px;background:#08091ddd;backdrop-filter:blur(8px)
+  position:fixed;
+  inset:0;
+  z-index:20;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  background:#08091ddd;
+  backdrop-filter:blur(8px);
 }
+
 .modal-box{
-  width:min(100%,440px);max-height:85vh;overflow:auto;
+  width:min(100%,440px);
+  max-height:85vh;
+  overflow:auto;
   background:linear-gradient(145deg,#292750,#171a3c);
-  border:1px solid #a78bfa80;border-radius:25px;padding:27px 21px;
-  box-shadow:0 0 60px #9372e744;text-align:center;
-  animation:pop .4s
+  border:1px solid #a78bfa80;
+  border-radius:25px;
+  padding:27px 21px;
+  box-shadow:0 0 60px #9372e744;
+  text-align:center;
+  animation:pop .4s;
 }
+
 .modal-icon{font-size:3.2rem}
+
 .close{background:#39315e;margin-top:15px}
-footer{padding:25px 10px;color:#aaa4ce;font-size:.9rem;text-align:center}
+
+footer{
+  padding:25px 10px;
+  color:#aaa4ce;
+  font-size:.9rem;
+  text-align:center;
+}
+
 footer b{color:#c4b5fd}
-@media(max-width:430px){.card{padding:22px 14px}.grid{gap:8px}.tile{padding:14px 7px}}
+
+.confetti{
+  position:fixed;
+  z-index:30;
+  pointer-events:none;
+  font-size:20px;
+  animation:confettiFall 1.8s ease-out forwards;
+}
+
+@keyframes confettiFall{
+  0%{opacity:1;transform:translateY(0) rotate(0)}
+  100%{opacity:0;transform:translateY(350px) rotate(500deg)}
+}
+
+@media(max-width:430px){
+  .card{padding:22px 14px}
+  .grid{gap:8px}
+  .tile{padding:14px 7px}
+}
+
 @media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    scroll-behavior:auto!important;
+    transition:none!important;
+  }
 }
 </style>
 </head>
 
 <body>
+
 <div id="stars"></div>
 
 <main>
+
+<!-- WELCOME -->
 <section class="card" id="welcome">
   <div class="emoji">🌙💜</div>
   <p class="small">A LITTLE UNIVERSE FOR TWO CHAOTIC SOULS</p>
+
   <h1>BADING<br>TAMBAYAN</h1>
   <h2>DALAWANG BADING, ISANG LABAN!</h2>
+
   <p>Welcome sa secret universe natin, sis.</p>
   <p>May kalat, may chismis, may emotional support. May mga sikreto ring hindi basta-basta makikita. 👀</p>
+
   <button class="primary" onclick="enter()">PASOK KA, SIS! ✨</button>
+
   <p class="small">Explore mo lahat. Baka may mahanap kang hindi mo dapat makita. CHAR!</p>
 </section>
 
+<!-- HOME -->
 <section id="home" class="hidden">
 
 <div class="card">
   <div class="emoji">🌌</div>
   <p class="small">WELCOME TO YOUR SAFE LITTLE CORNER</p>
+
   <h1>Uy, nandito ka na!</h1>
+
   <p>Welcome back, sis! Iwan muna natin ang stress sa labas. Dito, breathe in, breathe out. Tapos chismis. HAHAHA!</p>
+
   <h2>What's the mood, sis?</h2>
+
   <button onclick="mood('sad')">😭 Sad era</button>
   <button onclick="mood('overthink')">🧠 Overthink malala</button>
   <button onclick="mood('tired')">🫠 Pagod na</button>
   <button onclick="mood('laugh')">🤣 Patawanin mo ako</button>
   <button onclick="mood('confidence')">💅 Main character</button>
-  <div class="message" id="moodResult" aria-live="polite">Pili ka, sis. Naka-duty ang emotional support department.</div>
+
+  <div class="message" id="moodResult" aria-live="polite">
+    Pili ka, sis. Naka-duty ang emotional support department.
+  </div>
 </div>
 
+<!-- 12 CHAOS FEATURES -->
 <div class="card">
   <p class="small">THE DEPARTMENT OF KALAT</p>
   <h2>💜 Choose your chaos</h2>
   <p>Labindalawang paraan para pansamantalang makalimot sa adulting. 😭</p>
+
   <div class="grid">
-    <div class="tile" onclick="play('fortune')"><span>🔮</span><strong>Manghuhula</strong><small>Kapalaran mo raw...</small></div>
-    <div class="tile" onclick="play('court')"><span>⚖️</span><strong>Bading Court</strong><small>May kaso ka, sis.</small></div>
-    <div class="tile" onclick="play('machine')"><span>🎰</span><strong>Sampal o Lambing</strong><small>Spin your fate.</small></div>
-    <div class="tile" onclick="play('frog')"><span>🐸</span><strong>Palakang Marites</strong><small>May chika raw.</small></div>
-    <div class="tile" onclick="play('universe')"><span>🌌</span><strong>Ask the Universe</strong><small>Tanong ka lang.</small></div>
-    <div class="tile" onclick="play('compliment')"><span>💜</span><strong>Compliment Generator</strong><small>Deserve mo 'to.</small></div>
-    <div class="tile" onclick="play('delulu')"><span>🤡</span><strong>Delulu Meter</strong><small>Reality check, sis.</small></div>
-    <div class="tile" onclick="play('excuse')"><span>😭</span><strong>Excuse Generator</strong><small>Para sa tamad moments.</small></div>
-    <div class="tile" onclick="play('drama')"><span>🎭</span><strong>Drama Queen</strong><small>Release the artista.</small></div>
-    <div class="tile" onclick="play('report')"><span>📋</span><strong>Damage Report</strong><small>Kamusta ang mental?</small></div>
-    <div class="tile" onclick="play('roast')"><span>💅</span><strong>Compliment or Roast</strong><small>Risk mo 'yan.</small></div>
-    <div class="tile" onclick="play('forbidden')"><span>🚫</span><strong>Forbidden Button</strong><small>Huwag pindutin...</small></div>
+
+    <div class="tile" onclick="play('fortune')">
+      <span>🔮</span><strong>Manghuhula</strong>
+      <small>Kapalaran mo raw...</small>
+    </div>
+
+    <div class="tile" onclick="play('court')">
+      <span>⚖️</span><strong>Bading Court</strong>
+      <small>May kaso ka, sis.</small>
+    </div>
+
+    <div class="tile" onclick="play('machine')">
+      <span>🎰</span><strong>Sampal o Lambing</strong>
+      <small>Spin your fate.</small>
+    </div>
+
+    <div class="tile" onclick="play('frog')">
+      <span>🐸</span><strong>Palakang Marites</strong>
+      <small>May chika raw.</small>
+    </div>
+
+    <div class="tile" onclick="play('universe')">
+      <span>🌌</span><strong>Ask the Universe</strong>
+      <small>Tanong ka lang.</small>
+    </div>
+
+    <div class="tile" onclick="play('compliment')">
+      <span>💜</span><strong>Compliment Generator</strong>
+      <small>Deserve mo 'to.</small>
+    </div>
+
+    <div class="tile" onclick="play('delulu')">
+      <span>🤡</span><strong>Delulu Meter</strong>
+      <small>Reality check, sis.</small>
+    </div>
+
+    <div class="tile" onclick="play('excuse')">
+      <span>😭</span><strong>Excuse Generator</strong>
+      <small>Para sa tamad moments.</small>
+    </div>
+
+    <div class="tile" onclick="play('drama')">
+      <span>🎭</span><strong>Drama Queen</strong>
+      <small>Release the artista.</small>
+    </div>
+
+    <div class="tile" onclick="play('report')">
+      <span>📋</span><strong>Damage Report</strong>
+      <small>Kamusta ang mental?</small>
+    </div>
+
+    <div class="tile" onclick="play('roast')">
+      <span>💅</span><strong>Compliment or Roast</strong>
+      <small>Risk mo 'yan.</small>
+    </div>
+
+    <div class="tile" onclick="play('forbidden')">
+      <span>🚫</span><strong>Forbidden Button</strong>
+      <small>Huwag pindutin...</small>
+    </div>
+
   </div>
-  <div class="result" id="gameResult" aria-live="polite">Pumili ka ng isang kalokohan sa taas, sis. 👆</div>
+
+  <div class="result" id="gameResult" aria-live="polite">
+    Pumili ka ng isang kalokohan sa taas, sis. 👆
+  </div>
 </div>
 
+<!-- PALAKANG MARITES -->
 <div class="card">
   <div class="emoji">🐸</div>
   <h2>THE PALAKANG MARITES</h2>
+
   <p>May gusto raw sabihin ang palaka. Pindutin mo nang paulit-ulit.</p>
+
   <div class="frog" onclick="frogClick()" role="button" tabindex="0" aria-label="Pindutin ang palaka">🐸</div>
+
   <p id="frogText">Hello, sis. May chika ako. Pero secret.</p>
   <p class="small">Psst... try mo siyang kulitin.</p>
 </div>
 
+<!-- SECRET CORNERS -->
 <div class="card">
   <div class="emoji">💌</div>
   <h2>Secret Corners</h2>
-  <p>Hindi lahat ng message ay nasa harap mo. May kailangan mong hanapin.</p>
+
+  <p>Hindi lahat ng message ay nasa harap mo. May kailangan kang hanapin.</p>
+
   <div class="grid">
-    <div class="tile" onclick="secret('letter')"><span>💌</span><strong>Open when sad</strong><small>Para sa mabibigat na araw</small></div>
-    <div class="tile" onclick="secret('door')"><span>🚪</span><strong>Do not open</strong><small>Wag daw. Sige nga.</small></div>
-    <div class="tile" onclick="secret('box')"><span>🎁</span><strong>Mystery box</strong><small>May laman ba?</small></div>
-    <div class="tile" onclick="secret('star')"><span>🌟</span><strong>Little star</strong><small>A reminder for you</small></div>
+
+    <div class="tile" onclick="secret('letter')">
+      <span>💌</span><strong>Open when sad</strong>
+      <small>Para sa mabibigat na araw</small>
+    </div>
+
+    <div class="tile" onclick="secret('door')">
+      <span>🚪</span><strong>Do not open</strong>
+      <small>Wag daw. Sige nga.</small>
+    </div>
+
+    <div class="tile" onclick="secret('box')">
+      <span>🎁</span><strong>Mystery box</strong>
+      <small>May laman ba?</small>
+    </div>
+
+    <div class="tile" onclick="secret('star')">
+      <span>🌟</span><strong>Little star</strong>
+      <small>A reminder for you</small>
+    </div>
+
   </div>
 </div>
 
+<!-- DISCOVERY TRACKER -->
 <div class="card">
   <div class="emoji">🔍</div>
   <h2>Secret Discovery Tracker</h2>
+
   <p>Ilang sikreto na ang nahukay mo?</p>
-  <div class="progress"><div id="progressBar"></div></div>
-  <p id="progressText">0 secrets discovered. Kalikutin mo pa, sis!</p>
+
+  <div class="progress">
+    <div id="progressBar"></div>
+  </div>
+
+  <p id="progressText">0 discoveries. Kalikutin mo pa, sis!</p>
+
   <button class="primary" onclick="finalSecret()">Unlock the final message 🤫</button>
 </div>
 
+<!-- REMINDER -->
 <div class="card">
   <h2>💜 A little reminder</h2>
+
   <p>Hindi mo kailangang maging okay palagi. Hindi mo kailangang maging strong 24/7. Puwede kang mapagod. Puwede kang umiyak. Puwede kang magpahinga.</p>
+
   <p>Hindi mo kailangang solusyunan lahat nang sabay-sabay.</p>
+
   <h1>KAYA MO 'YAN!</h1>
   <h1>KAYA NATIN 'TO!</h1>
+
   <p>Dalawa tayo, isang laban. 🫂</p>
 </div>
+
 </section>
 
-<footer><b>Bading Tambayan</b> 💜<br>Made with love, kalat, at konting emotional damage.</footer>
+<footer>
+  <b>Bading Tambayan</b> 💜<br>
+  Made with love, kalat, at konting emotional damage.
+</footer>
+
 </main>
 
+<!-- MODAL -->
 <div id="modal" class="modal hidden" onclick="outsideClose(event)">
-  <div class="modal-box">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+
     <div class="modal-icon" id="modalIcon">💜</div>
+
     <h2 id="modalTitle">Secret message</h2>
+
     <p id="modalText"></p>
+
     <button class="close" onclick="closeModal()">Okay, gets ko na 😭</button>
+
   </div>
 </div>
 
 <script>
-/* STARRY SKY */
-const starArea=document.getElementById('stars');
+
+/* =================================
+   STARRY SKY
+================================= */
+
+const starArea = document.getElementById('stars');
+
 for(let i=0;i<65;i++){
   const s=document.createElement('span');
-  s.className='star';s.textContent=Math.random()>.5?'✦':'·';
-  s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';
+
+  s.className='star';
+  s.textContent=Math.random()>.5?'✦':'·';
+
+  s.style.left=Math.random()*100+'%';
+  s.style.top=Math.random()*100+'%';
   s.style.fontSize=(8+Math.random()*15)+'px';
   s.style.animationDuration=(1+Math.random()*3)+'s';
   s.style.animationDelay=Math.random()*3+'s';
+
   starArea.appendChild(s);
 }
+
 function shootingStar(){
-  const s=document.createElement('div');s.className='shooting-star';
-  s.style.left=Math.random()*80+'vw';s.style.top=Math.random()*50+'vh';
-  document.body.appendChild(s);setTimeout(()=>s.remove(),1600);
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+
+  const s=document.createElement('div');
+
+  s.className='shooting-star';
+  s.style.left=Math.random()*80+'vw';
+  s.style.top=Math.random()*50+'vh';
+
+  document.body.appendChild(s);
+
+  setTimeout(()=>s.remove(),1600);
 }
+
 setInterval(shootingStar,5000);
 
+
+/* =================================
+   CONFETTI
+================================= */
+
+function confetti(){
+  const emojis=['💜','✨','🌟','💖','🫂','🌸'];
+
+  for(let i=0;i<18;i++){
+    const item=document.createElement('span');
+
+    item.className='confetti';
+    item.textContent=pick(emojis);
+
+    item.style.left=Math.random()*100+'vw';
+    item.style.top=(Math.random()*15)+'vh';
+    item.style.animationDelay=Math.random()*.4+'s';
+
+    document.body.appendChild(item);
+
+    setTimeout(()=>item.remove(),2300);
+  }
+}
+
+
+/* =================================
+   ENTER WEBSITE
+================================= */
+
 function enter(){
-  document.getElementById('home').classList.remove('hidden');
-  document.getElementById('home').scrollIntoView({behavior:'smooth'});
+  document.getElementById('welcome').classList.add('hidden');
+
+  const home=document.getElementById('home');
+
+  home.classList.remove('hidden');
+
+  home.scrollIntoView({behavior:'smooth'});
+
   confetti();
 }
 
-/* MESSAGE SYSTEM */
+
+/* =================================
+   MESSAGE SYSTEM
+================================= */
+
 const moodMessages={
+
 sad:[
 "Halika rito, sis. 🫂 Hindi ka mahina dahil umiiyak ka. Tao ka, hindi washing machine.",
 "Hindi forever ang ganitong araw. Dahan-dahan lang. Hindi mo kailangang magpanggap na okay.",
 "Kung mabigat ngayon, ibaba mo muna. Hindi lahat kailangan mong buhatin nang sabay-sabay.",
 "Puwede kang umiyak, sis. Puwede kang magpahinga. Deserve mo rin ng lambing."
 ],
+
 overthink:[
 "SIS, TAMA NA. Gumawa na naman utak mo ng 48 episodes kahit wala pang pilot episode. 😭",
 "Hindi lahat ng naiisip mo ay mangyayari. Minsan imagination mo lang ang may overtime.",
 "One problem at a time. Hindi ka octopus.",
 "What if okay naman pala? Baka naman pwedeng huwag nating unahan ang problema."
 ],
+
 tired:[
 "Pahinga ka muna, sis. Hindi ka empleyado ng universe na may attendance.",
 "Kahit halaman dinidiligan. Ikaw pa kaya? Tubig ka muna diyan. 😭",
 "Hindi sukatan ng worth mo ang dami ng nagawa mo today.",
 "Rest muna. Hindi ka nawawalan ng progress dahil huminto ka sandali."
 ],
+
 laugh:[
 "Ang buhay ay parang electric fan. Minsan umiikot ka lang pero wala ka namang nararating. 😭",
 "Kung problema mo ay tao, edi block. Kung bills, sis, sorry kailangan natin magtrabaho.",
 "Kung may bayad ang kakaisip mo, millionaire ka na sana.",
 "Ang confidence ko parang Wi-Fi. Malakas kapag walang nakakakita."
 ],
+
 confidence:[
 "Tumingin ka sa salamin. AYAN! May star material sa harap mo. 💅",
 "Hindi mo kailangan ng approval ng lahat. Hindi ito barangay election.",
 "Main character ka. Huwag mong ibigay ang script mo sa mga kontrabida.",
 "You've survived so much already. Give yourself some credit, sis!"
 ]
+
 };
-function pick(a){return a[Math.floor(Math.random()*a.length)]}
+
+function pick(array){
+  return array[Math.floor(Math.random()*array.length)];
+}
+
 function setResult(id,text){
   const el=document.getElementById(id);
-  el.classList.remove('pop');void el.offsetWidth;
-  el.textContent=text;el.classList.add('pop');
-}
-function mood(type){setResult('moodResult',pick(moodMessages[type]))}
 
-/* DISCOVERY */
+  el.classList.remove('pop');
+
+  void el.offsetWidth;
+
+  el.textContent=text;
+
+  el.classList.add('pop');
+}
+
+function mood(type){
+  if(!moodMessages[type])return;
+
+  setResult('moodResult',pick(moodMessages[type]));
+}
+
+
+/* =================================
+   DISCOVERY TRACKER
+   12 games + 4 secrets + frog
+================================= */
+
+const TOTAL_DISCOVERIES=17;
+
 let found=new Set();
-function discover(k){
-  if(found.has(k))return;
-  found.add(k);updateProgress();
-}
-function updateProgress(){
-  const count=found.size;
-  document.getElementById('progressBar').style.width=Math.min(count/12*100,100)+'%';
-  document.getElementById('progressText').textContent=
-  count>=12?"ALL SECRETS FOUND! SIS, IKAW ANG CHOSEN ONE! 🌟":
-  count+" secret discoveries! Ang sipag mong mangalkal, sis. 👀";
+
+function discover(key){
+  if(found.has(key))return;
+
+  found.add(key);
+
+  updateProgress();
 }
 
-/* GAME DATA */
+function updateProgress(){
+
+  const count=found.size;
+
+  const percentage=(count/TOTAL_DISCOVERIES)*100;
+
+  document.getElementById('progressBar').style.width=percentage+'%';
+
+  document.getElementById('progressText').textContent=
+
+  count>=TOTAL_DISCOVERIES
+  ?"ALL SECRETS FOUND! SIS, IKAW ANG CHOSEN ONE! 🌟"
+  :count+" / "+TOTAL_DISCOVERIES+" discoveries! Ang sipag mong mangalkal, sis. 👀";
+
+}
+
+
+/* =================================
+   12 CHAOS GAMES
+================================= */
+
 const games={
+
 fortune:{
-icon:'🔮',title:'Manghuhula ng Kapalaran',
+icon:'🔮',
+title:'Manghuhula ng Kapalaran',
 items:[
 "May darating na blessing sa buhay mo. Sana hindi bill. 😭",
 "Your future is bright. Pero mag-charge ka muna ng phone.",
@@ -326,8 +765,10 @@ items:[
 "May taong naiisip ka. Pero huwag kang mag-assume, beh. Charot!",
 "Ang kapalaran mo ay nasa kamay mo. Hugasan mo muna."
 ]},
+
 court:{
-icon:'⚖️',title:'Bading Court',
+icon:'⚖️',
+title:'Bading Court',
 items:[
 "CASE #001: Guilty ka sa pagiging marupok. Sentenced to 3 days of self-love. 💅",
 "CASE #002: Overthinking in the first degree. Sentenced to 8 hours of tulog.",
@@ -335,8 +776,10 @@ items:[
 "CASE #004: Excessive scrolling. Sentenced to drink water and touch grass.",
 "CASE #005: Pagiging mabait sa maling tao. Sentenced to set boundaries."
 ]},
+
 machine:{
-icon:'🎰',title:'Sampal o Lambing Machine',
+icon:'🎰',
+title:'Sampal o Lambing Machine',
 items:[
 "🫂 LAMBING: Sis, proud kami sa'yo. Hindi mo man nakikita, ang layo na ng narating mo.",
 "💀 SAMPAL: Hindi siya busy. Baka hindi ka lang priority. Ouch, sis.",
@@ -344,8 +787,10 @@ items:[
 "💀 SAMPAL: Tigilan ang pag-stalk. Hindi ka detective, sis.",
 "🫂 LAMBING: Deserve mong mahalin nang maayos. Never settle for less."
 ]},
+
 frog:{
-icon:'🐸',title:'Palakang Marites',
+icon:'🐸',
+title:'Palakang Marites',
 items:[
 "May chika ako, sis. Pero nakalimutan ko. Croak.",
 "May nakita akong red flag. Akala ko decoration.",
@@ -353,8 +798,10 @@ items:[
 "Breaking news: Ang palaka ay pagod na rin sa buhay.",
 "May bagong chismis! Ikaw ang bida. Charot lang, huwag kabahan."
 ]},
+
 universe:{
-icon:'🌌',title:'Ask the Universe',
+icon:'🌌',
+title:'Ask the Universe',
 items:[
 "Universe says: MATULOG KA NA, SIS.",
 "Universe says: Maybe yes. Maybe no. Baka kailangan mo pang mag-isip.",
@@ -362,8 +809,10 @@ items:[
 "Universe says: Good things take time. Huwag magmadali.",
 "Universe says: Hindi lahat ng bagay kailangan mong kontrolin."
 ]},
+
 compliment:{
-icon:'💜',title:'Random Compliment',
+icon:'💜',
+title:'Random Compliment',
 items:[
 "Ang galing mong lumaban kahit pagod ka na. Proud kami sa'yo.",
 "Your existence makes someone's day better. Hindi mo lang alam.",
@@ -371,8 +820,10 @@ items:[
 "Ang ganda ng energy mo kapag sarili mo ang pinipili mo.",
 "You deserve kindness, especially from yourself."
 ]},
+
 delulu:{
-icon:'🤡',title:'Delulu Meter',
+icon:'🤡',
+title:'Delulu Meter',
 items:[
 "DELULU LEVEL: 10% — May konting imagination lang. Safe pa.",
 "DELULU LEVEL: 35% — Sis, medyo may scenario ka na sa utak mo.",
@@ -380,8 +831,10 @@ items:[
 "DELULU LEVEL: 90% — Nag-name na kayo ng anak sa imagination mo.",
 "DELULU LEVEL: 1000% — SIS, GISING. MAY PASOK PA BUKAS."
 ]},
+
 excuse:{
-icon:'😭',title:'Excuse Generator',
+icon:'😭',
+title:'Excuse Generator',
 items:[
 "Sorry po, nag-update ang aking operating system. Hindi pa po ako compatible sa responsibilities.",
 "Pasensya na, sis. Nasa maintenance mode po ang aking kaluluwa.",
@@ -389,8 +842,10 @@ items:[
 "Delayed po ako dahil may meeting kami ng katamaran.",
 "Apologies. My brain has left the group chat."
 ]},
+
 drama:{
-icon:'🎭',title:'Drama Queen Department',
+icon:'🎭',
+title:'Drama Queen Department',
 items:[
 "ANG SAKIT! ANG HIRAP! ANG BIGAT! Pero maganda pa rin ako. 💅",
 "PLEASE, UNIVERSE. CAN I HAVE ONE NORMAL DAY?!",
@@ -398,8 +853,10 @@ items:[
 "Cut! CUT! I DEMAND A BETTER SCRIPT!",
 "Kung iyak lang ang puhunan, sis, award-winning na tayo."
 ]},
+
 report:{
-icon:'📋',title:'Emotional Damage Report',
+icon:'📋',
+title:'Emotional Damage Report',
 items:[
 "STATUS: Medyo sabog. RECOMMENDATION: Tubig, pagkain, tulog, at konting chika.",
 "STATUS: Overloaded. ACTION: Close unnecessary tabs sa utak.",
@@ -407,8 +864,10 @@ items:[
 "STATUS: Main character under pressure. NEXT STEP: Take a break.",
 "STATUS: Recovering. PROGNOSIS: May pag-asa, sis. Dahan-dahan lang."
 ]},
+
 roast:{
-icon:'💅',title:'Compliment or Roast',
+icon:'💅',
+title:'Compliment or Roast',
 items:[
 "COMPLIMENT: Ang ganda mo, sis. ROAST: Bakit hindi ka pa natutulog?",
 "COMPLIMENT: Strong ka. ROAST: Pero bakit ang hina mong mag-set ng boundaries?",
@@ -416,8 +875,10 @@ items:[
 "COMPLIMENT: Deserving ka ng love. ROAST: Tigilan ang paghabol sa hindi naman tumatakbo.",
 "COMPLIMENT: You are amazing. ROAST: Baka naman kailangan mo lang ng tubig."
 ]},
+
 forbidden:{
-icon:'🚫',title:'THE FORBIDDEN BUTTON',
+icon:'🚫',
+title:'THE FORBIDDEN BUTTON',
 items:[
 "BAWAL NGA PINDUTIN! SIS, MAY PROBLEMA KA BA SA PAGBABASA? 😭",
 "Congratulations. Wala kang napanalunan. Pindot ka pa.",
@@ -425,347 +886,241 @@ items:[
 "Warning: Your curiosity has exceeded recommended levels.",
 "Ang tapang mo. Sana ganyan ka rin katapang magpahinga."
 ]}
+
 };
 
 function play(key){
-  const g=games[key];
-  const text=pick(g.items);
-  setResult('gameResult',g.icon+" "+text);
+
+  const game=games[key];
+
+  if(!game)return;
+
+  const text=pick(game.items);
+
+  setResult('gameResult',game.icon+" "+text);
+
   discover(key);
+
   confetti();
+
 }
 
-/* PALAKANG MARITES */
+
+/* =================================
+   PALAKANG MARITES
+================================= */
+
 let frogCount=0;
+
 const frogLines=[
+
 "Hello, sis. May chika ako. Pero secret.",
+
 "Uy, bumalik ka! May tanong ka ba?",
+
 "Alam mo ba, marunong akong lumangoy? Ikaw ba, marunong mag-move on?",
+
 "TEKA LANG. Pindot ka nang pindot. Wala ka bang ibang hobby?",
+
 "FIFTH TIME NA 'TO! SANA ALL MAY GANITONG ATTENTION. 😭",
+
 "Fine. Ang chika: DESERVE MO NG MAS MAGANDANG BUHAY.",
+
 "Blocked ka na sana kaso palaka lang ako. 🐸"
+
 ];
+
 function frogClick(){
+
   frogCount++;
-  document.getElementById('frogText').textContent=frogLines[Math.min(frogCount,frogLines.length-1)];
-  if(frogCount>=5){discover('frog');confetti()}
-}
 
-/* SECRET POPUPS */
-const secrets={
-letter:['💌','A little letter for you','Dear sis, hindi mo kailangang ayusin lahat ngayon. You are allowed to have bad days. You are allowed to rest. You deserve good things, too. Proud kami sa iyo. 💜'],
-door:['🚪','BAKIT MO PININDOT?!','Sabi nang huwag buksan eh. 😭 Curious ka talaga, sis. Anyway, KAYAdi mo kailangang maging okay araw-araw.
-      Hindi mo kailangang laging malakas.
-      At hindi mo kailangang solusyunan lahat nang sabay-sabay.
-    </p>
-    <p>
-      Kahit gaano kagulo ang mundo,
-      sana maalala mong may kakampi ka.
-    </p>
-    <h1>KAYA MO 'YAN!</h1>
-    <h1>KAYA NATIN 'TO!</h1>
-    <p>Dalawa tayo, isang laban. 🫂</p>
-  </div>
+  document.getElementById('frogText').textContent=
 
-</section>
+  frogLines[Math.min(frogCount,frogLines.length-1)];
 
-<footer>
-  <b>Bading Tambayan</b> 💜
-  <br>Made with love, kalat, at konting emotional damage.
-</footer>
-</main>
+  if(frogCount>=5){
 
-<!-- POPUP -->
-<div id="modal" class="modal hidden" onclick="outsideClose(event)">
-  <div class="modal-box">
-    <div class="modal-icon" id="modalIcon">💜</div>
-    <h2 id="modalTitle">Secret message</h2>
-    <p id="modalText">Message goes here.</p>
-    <button class="close" onclick="closeModal()">Sige, gets ko na 😭</button>
-  </div>
-</div>
+    discover('frog');
 
-<!-- HUG SCREEN -->
-<div id="hugScreen" class="modal hidden">
-  <div class="modal-box">
-    <div class="hug-icon">🫂💜</div>
-    <h1>YAKAAAAAP!</h1>
-    <p>
-      Imagine may dalawang braso na nakayakap sa'yo ngayon.
-      Walang kailangang sabihin.
-      Hinga muna, mhie.
-    </p>
-    <p>Hindi mo kailangang harapin lahat mag-isa. 💜</p>
-    <button onclick="closeHug()">Thank you, mhie. 🥹</button>
-  </div>
-</div>
+    confetti();
 
-<script>
-/* STARRY BACKGROUND */
-const starArea = document.getElementById('stars');
-
-for(let i=0;i<65;i++){
-  const star=document.createElement('span');
-  star.className='star';
-  star.textContent=Math.random()>.5?'✦':'·';
-  star.style.left=Math.random()*100+'%';
-  star.style.top=Math.random()*100+'%';
-  star.style.fontSize=(8+Math.random()*15)+'px';
-  star.style.animationDuration=(1+Math.random()*3)+'s';
-  star.style.animationDelay=Math.random()*3+'s';
-  starArea.appendChild(star);
-}
-
-/* SHOOTING STARS */
-function shootingStar(){
-  const s=document.createElement('div');
-  s.className='shooting-star';
-  s.style.left=Math.random()*80+'vw';
-  s.style.top=Math.random()*50+'vh';
-  document.body.appendChild(s);
-  setTimeout(()=>s.remove(),1600);
-}
-setInterval(shootingStar,4500);
-
-/* WELCOME */
-function enter(){
-  document.getElementById('home').classList.remove('hidden');
-  document.getElementById('home').scrollIntoView({behavior:'smooth'});
-  confetti();
-}
-
-/* MESSAGES */
-const moods={
-  sad:[
-    "Mhie, halika rito. 🫂 Hindi ka mahina dahil umiiyak ka. Tao ka, hindi washing machine.",
-    "Hindi forever ang ganitong araw. Dahan-dahan lang. Hindi ka nag-iisa. 💜",
-    "Puwede kang umiyak. Puwede kang magpahinga. Hindi mo kailangang magpanggap na okay ka.",
-    "Kung mabigat ngayon, ibaba mo muna. Hindi lahat kailangan mong buhatin nang sabay-sabay."
-  ],
-  overthink:[
-    "TEH, TAMA NA. Gumawa na naman ang utak mo ng 48 episodes. 😭",
-    "Hindi lahat ng naiisip mo ay mangyayari. Minsan imagination mo lang ang may overtime.",
-    "One problem at a time, mhie. Hindi ka octopus.",
-    "What if okay naman pala? What if hindi kailangan ng utak mo gumawa ng teleserye?"
-  ],
-  tired:[
-    "Pahinga ka muna. Hindi ka empleyado ng universe na may attendance.",
-    "Kahit halaman dinidiligan. Ikaw pa kaya? Tubig ka muna diyan. 😭",
-    "Hindi sukatan ng worth mo ang dami ng nagawa mo today.",
-    "Rest muna, mhie. Hindi ka nawawalan ng progress dahil huminto ka sandali."
-  ],
-  laugh:[
-    "Ang buhay ay parang electric fan. Minsan umiikot ka lang pero wala ka namang nararating. 😭",
-    "Kung ang problema mo ay tao, edi block. Kung bills, mhie, sorry kailangan natin magtrabaho.",
-    "Hindi ka pangit. Pagod ka lang. At baka kailangan mo rin matulog.",
-    "Kung may bayad ang kakaisip mo, millionaire ka na sana.",
-    "Ang confidence ko parang Wi-Fi. Malakas kapag walang nakakakita."
-  ],
-  confidence:[
-    "Tumingin ka sa salamin. AYAN! May star material sa harap mo. 💅",
-    "Hindi mo kailangan ng approval ng lahat. Hindi ito barangay election.",
-    "Main character ka. Huwag mong ibigay ang script mo sa mga kontrabida.",
-    "You've survived so much already. Give yourself some credit, mhie!"
-  ]
-};
-
-function pick(arr){
-  return arr[Math.floor(Math.random()*arr.length)];
-}
-
-function showMessage(text){
-  const box=document.getElementById('message');
-  box.classList.remove('pop');
-  void box.offsetWidth;
-  box.textContent=text;
-  box.classList.add('pop');
-}
-
-function mood(type){
-  showMessage(pick(moods[type]));
-}
-
-/* MODAL */
-let discovered=new Set();
-
-const secrets={
-  letter:{
-    icon:'💌',
-    title:'A little letter for you',
-    text:'Dear mhie, kung binuksan mo ito dahil malungkot ka, gusto lang naming ipaalala na hindi mo kailangang ayusin ang lahat ngayon. You are allowed to have bad days. You are allowed to rest. At higit sa lahat, you deserve good things too. Proud kami sa iyo. 💜'
-  },
-  door:{
-    icon:'🚪',
-    title:'BAKIT MO PININDOT?!',
-    text:'Sabi nang huwag buksan eh. 😭 Curious ka talaga, mhie. Anyway, since nandito ka na: KAYA MO YAN! Huwag ka nang makulit. Charot!'
-  },
-  box:{
-    icon:'🎁',
-    title:'MYSTERY BOX!',
-    text:'Congratulations! Ang napanalunan mo ay... isang libreng problema na hindi mo naman kailangan! HAHAHAHA. CHAR! Ang totoong prize mo ay isang reminder na deserve mong maging masaya. 💜'
-  },
-  mirror:{
-    icon:'🪞',
-    title:'Mirror, mirror on the wall...',
-    text:'Sino ang fabulous sa lahat? IKAW, MHIE! Hindi mo kailangan maging perfect para maging worthy. Confidence check: PASSED. 💅'
-  },
-  hug:{
-    icon:'🧸',
-    title:'FREE YAKAP!',
-    text:'Walang membership fee. Walang requirements. Isang mahigpit na yakap lang. 🫂'
-  },
-  star:{
-    icon:'🌟',
-    title:'A message from the stars',
-    text:'You may not be where you want to be yet, but look how far you have come. Keep going. Your pace is still progress. 💜'
-  },
-  final:{
-    icon:'🌌',
-    title:'The final little secret',
-    text:'Kung umabot ka rito, sana alam mong may lugar ka sa mundong ito. Hindi mo kailangang maging ibang tao para mahalin at pahalagahan. May kakampi ka. Dalawa tayo, isang laban. KAYA NATIN TO! 🫂💜'
   }
+
+}
+
+
+/* Keyboard support for frog */
+
+document.querySelector('.frog').addEventListener('keydown',function(event){
+
+  if(event.key==='Enter'||event.key===' '){
+
+    event.preventDefault();
+
+    frogClick();
+
+  }
+
+});
+
+
+/* =================================
+   SECRET CORNERS
+================================= */
+
+const secrets={
+
+letter:[
+'💌',
+'A little letter for you',
+'Dear sis, hindi mo kailangang ayusin lahat ngayon. You are allowed to have bad days. You are allowed to rest. You deserve good things, too. Proud kami sa iyo. 💜'
+],
+
+door:[
+'🚪',
+'BAKIT MO PININDOT?!',
+'Sabi nang huwag buksan eh. 😭 Curious ka talaga, sis. Anyway, KAYA MO YAN! Huwag mong kalimutan na may kakampi ka.'
+],
+
+box:[
+'🎁',
+'Mystery Box Unlocked!',
+'Congratulations! Ang laman ng box ay... isang virtual hug! 🫂 At isang reminder na hindi ka nag-iisa. Deserve mo ang lahat ng magagandang bagay.'
+],
+
+star:[
+'🌟',
+'Your Little Star',
+'Kahit gaano kadilim ang gabi, may liwanag pa ring naghihintay. Hindi mo kailangang magmadali. Keep going, little star. 💜'
+
+]
+
 };
 
-function openSecret(key){
-  const item=secrets[key];
-  document.getElementById('modalIcon').textContent=item.icon;
-  document.getElementById('modalTitle').textContent=item.title;
-  document.getElementById('modalText').textContent=item.text;
+function openModal(icon,title,text){
+
+  document.getElementById('modalIcon').textContent=icon;
+
+  document.getElementById('modalTitle').textContent=title;
+
+  document.getElementById('modalText').textContent=text;
+
   document.getElementById('modal').classList.remove('hidden');
 
-  if(!discovered.has(key)){
-    discovered.add(key);
-    updateProgress();
-    confetti();
-  }
+  document.body.style.overflow='hidden';
 
-  if(key==='hug'){
-    setTimeout(()=>{
-      document.getElementById('modal').classList.add('hidden');
-      document.getElementById('hugScreen').classList.remove('hidden');
-    },1800);
-  }
 }
 
 function closeModal(){
+
   document.getElementById('modal').classList.add('hidden');
+
+  document.body.style.overflow='';
+
 }
 
-function outsideClose(e){
-  if(e.target.id==='modal') closeModal();
-}
+function outsideClose(event){
 
-function closeHug(){
-  document.getElementById('hugScreen').classList.add('hidden');
-}
+  if(event.target.id==='modal'){
 
-/* FROG EASTER EGG */
-let frogCount=0;
+    closeModal();
 
-function frogClick(){
-  frogCount++;
-  const frog=document.getElementById('frogText');
-
-  const reactions=[
-    "Hello, mhie. Anong tingin mo?",
-    "Uy, isa pa lang. Ano kailangan mo?",
-    "Teh, may problema ka ba? 😭",
-    "HOY! Pindot ka nang pindot!",
-    "IKALIMANG BESES NA! WALA KA BANG GINAGAWA?!",
-    "Sige na nga. Eto na: MAGANDA KA. HAPPY KA NA?! 😭",
-    "Blocked ka na sana kaso palaka lang ako. 🐸"
-  ];
-
-  frog.textContent=reactions[Math.min(frogCount,reactions.length-1)];
-  if(frogCount>=5){
-    discovered.add('frog');
-    updateProgress();
-    confetti();
   }
+
 }
 
-/* EMERGENCY GENERATOR */
-const emergencies=[
-  "OFFICIAL ANNOUNCEMENT: Maganda ka pa rin kahit may problema. 💅",
-  "Hindi ka failure. Loading screen ka lang. Please wait.",
-  "Kung hindi kaya today, edi bukas ulit. Hindi naman tayo hinahabol ng barangay.",
-  "Reminder: Hindi mo kailangan i-please lahat. Hindi ka Jollibee.",
-  "Drink water, mhie. Hindi puro problema ang dapat laman ng katawan mo.",
-  "KAYA MO 'YAN! At kung hindi, edi hanapan natin ng paraan. TEAMWORK!",
-  "BREAKING: Ang taong ito ay deserving ng pahinga at masarap na pagkain."
-];
+function secret(key){
 
-function emergency(){
-  const box=document.getElementById('emergencyText');
-  box.classList.remove('pop');
-  void box.offsetWidth;
-  box.textContent=pick(emergencies);
-  box.classList.add('pop');
+  const data=secrets[key];
+
+  if(!data)return;
+
+  openModal(data[0],data[1],data[2]);
+
+  discover('secret-'+key);
+
   confetti();
+
 }
 
-/* DISCOVERY */
-function updateProgress(){
-  const count=discovered.size;
-  const total=7;
-  const percent=Math.min(count/total*100,100);
-  document.getElementById('progressBar').style.width=percent+'%';
 
-  const texts=[
-    "0 secrets discovered. Kalikutin mo pa, mhie!",
-    "May nahanap ka na! Ang sipag mo naman. 👀",
-    "Two discoveries! Chismosa ka pala. 😭",
-    "Three! Unti-unti nang nabubunyag ang sikreto.",
-    "Four! Investigator yarn?",
-    "Five discoveries! Konti na lang, mhie!",
-    "Six! Halos alam mo na lahat!",
-    "ALL SECRETS FOUND! IKAW ANG CHOSEN ONE! 🌟"
-  ];
-
-  document.getElementById('progressText').textContent=
-    texts[Math.min(count,7)];
-}
+/* =================================
+   FINAL SECRET
+================================= */
 
 function finalSecret(){
-  if(discovered.size<3){
-    openSecret('final');
-    document.getElementById('modalText').textContent=
-      "AY TEKA! Hindi pa puwede. 😭 Maghanap ka muna ng kahit tatlong secrets bago mo makuha ang final message. Explore ka muna, mhie!";
+
+  if(found.size<TOTAL_DISCOVERIES){
+
+    const remaining=TOTAL_DISCOVERIES-found.size;
+
+    openModal(
+      '🔒',
+      'HALA, HINDI PA COMPLETE!',
+      'May '+remaining+' pang discoveries kang hindi nahahanap, sis! 😭\\n\\nBalikan mo ang mga chaos games, kulitin ang palaka, at buksan ang Secret Corners. Kaya mo yan!'
+    );
+
     return;
+
   }
-  openSecret('final');
-  discovered.add('final');
-  updateProgress();
+
+  openModal(
+
+    '💜',
+
+    'YOU FOUND EVERYTHING!',
+
+    'Dear sis,\\n\\nKung may isang bagay kang dapat tandaan, ito iyon: Hindi mo kailangang harapin ang lahat nang mag-isa.\\n\\nMay mga araw na mahirap, may mga araw na nakakapagod, at may mga araw na gusto mo na lang sumuko. Pero nandito ka pa rin. Lumalaban ka pa rin.\\n\\nProud ako sa atin. Sa lahat ng pinagdaanan natin at sa lahat ng malalampasan pa natin.\\n\\nKAYA MO YAN. KAYA NATIN TO.\\n\\nDalawang bading, isang laban. Forever kakampi. 🫂💜'
+
+  );
+
   confetti();
+
 }
 
-/* CONFETTI */
-function confetti(){
-  const symbols=['💜','✨','🌙','⭐','💙','🦋'];
-  for(let i=0;i<24;i++){
-    const el=document.createElement('span');
-    el.textContent=pick(symbols);
-    el.style.position='fixed';
-    el.style.left=Math.random()*100+'vw';
-    el.style.top='-30px';
-    el.style.fontSize=(15+Math.random()*18)+'px';
-    el.style.pointerEvents='none';
-    el.style.zIndex='30';
-    el.style.transition='transform 2s ease,opacity 2s';
-    document.body.appendChild(el);
 
-    requestAnimationFrame(()=>{
-      el.style.transform=
-        `translateY(${innerHeight+60}px) rotate(${Math.random()*500}deg)`;
-      el.style.opacity='0';
-    });
+/* =================================
+   SECRET EASTER EGG
+================================= */
 
-    setTimeout(()=>el.remove(),2100);
+let titleClicks=0;
+
+document.querySelector('#welcome h1').addEventListener('click',function(){
+
+  titleClicks++;
+
+  if(titleClicks>=5){
+
+    titleClicks=0;
+
+    openModal(
+      '👀',
+      'SECRET EASTER EGG!',
+      'SIS?! Limang beses mong pinindot ang title?! HAHAHA! Certified kalikot ka talaga. 💜'
+    );
+
+    confetti();
+
   }
-}
+
+});
+
+
+/* =================================
+   KEYBOARD MODAL CONTROL
+================================= */
+
+document.addEventListener('keydown',function(event){
+
+  if(event.key==='Escape'){
+
+    closeModal();
+
+  }
+
+});
+
 </script>
 
 </body>
-  </html>
-                                                         
+</html>
